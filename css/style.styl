@@ -1,0 +1,42 @@
+mainColor = #337AB7
+secondColor = #FFAB69
+
+.list__item
+  background: mainColor
+  color: #fff
+  padding: 5px 10px
+  border-bottom: 1px solid
+  cursor: pointer
+
+.current
+  border: 2px solid mainColor
+  text-align: center
+
+  &__image-box
+    margin: auto
+    width: 200px
+    overflow: hidden
+    cursor: pointer
+
+    &:hover + div > .fa-heart
+      color: secondColor
+
+  &__image
+    width: 200px
+    height: auto
+
+.admin-form
+  margin-top: 20px
+
+  &__name
+    margin-top: 15px
+
+.inputs-wrapper
+  display: none
+
+.fa
+  font-size: 18px
+
+  &:hover
+    cursor: pointer
+    color: secondColor

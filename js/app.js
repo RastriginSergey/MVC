@@ -39,6 +39,7 @@ var controller = {
 
 		viewList.init();
 		viewCurrent.init();
+		viewAdmin.init();
 	},
 
 	getCurrent: function() {
@@ -47,6 +48,7 @@ var controller = {
 
 	setCurrent: function(obj) {
 		model.current = obj;
+		viewCurrent.render();
 	},
 
 	getAll: function() {
@@ -78,6 +80,8 @@ var viewList = {
 			$elem.on('click', (function(index) {
 				return function() {
 					controller.setCurrent(cats[index]);
+
+					viewAdmin.$inputsBlock.hide();
 					viewCurrent.render();
 				}
 			})(i));
@@ -88,10 +92,10 @@ var viewList = {
 var viewCurrent = {
 	init: function() {
 		this.$name = $('.current__name');
-		this.$image = $('.current__image').find('img');
+		this.$image = $('.current__image');
 		this.$likes = $('.current__likes');
 
-		this.$image.on('click', function() {
+		$(document).on('click', '.current__image, .fa', function() {
 			controller.increaseLikes();
 		});
 		this.render();
@@ -102,6 +106,63 @@ var viewCurrent = {
 		this.$name.text(this.currentObject.name);
 		this.$image.attr('src', this.currentObject.img);
 		this.$likes.text(this.currentObject.likes);
+	}
+};
+
+var viewAdmin = {
+	init: function() {
+		/* Buttons */
+		this.$adminBtn = $('.admin-form__admin-btn');
+		this.$saveBtn = $('.admin-form__save-btn');
+		this.$cancelBtn = $('.admin-form__cancel-btn');
+
+		/* Inputs */
+		this.$nameInput = $('.admin-form__name');
+		this.$imgInput = $('.admin-form__img');
+		this.$likesInput = $('.admin-form__likes');
+
+		/* Input wrapper */
+		this.$inputsBlock = $('.inputs-wrapper');
+
+		/* Init Buttons events listeners */
+		this.eventListeners();
+
+	},
+	eventListeners: function() {
+		this.$adminBtn.on('click', function(e) {
+			e.preventDefault();
+
+			var currentCat = controller.getCurrent();
+			this.$inputsBlock.show();
+
+			this.$nameInput.val(currentCat.name);
+			this.$imgInput.val(currentCat.img);
+			this.$likesInput.val(currentCat.likes);
+
+		}.bind(this));
+
+
+		this.$saveBtn.on('click', function(e) {
+			e.preventDefault();
+
+			var updateCurrent = {
+				name: this.$nameInput.val(),
+				img: this.$imgInput.val(),
+				likes: this.$likesInput.val()
+			};
+
+			controller.setCurrent(updateCurrent);
+
+		}.bind(this));
+
+		this.$cancelBtn.on('click', function(e) {
+			e.preventDefault();
+			this.$nameInput.val('');
+			this.$imgInput.val('');
+			this.$likesInput.val('');
+
+			this.$inputsBlock.hide();
+		}.bind(this));
 	}
 };
 
