@@ -1,0 +1,27 @@
+.list__item {
+    background:royalblue;
+    color: #fff;
+    padding: 5px 10px;
+    border-bottom: 1px solid;
+    cursor: pointer;
+}
+
+.current{
+    border: 2px solid steelblue;
+    text-align: center;
+}
+
+.current__image{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.current__image img {
+    width: 100px;
+    height: 100%;
+}
