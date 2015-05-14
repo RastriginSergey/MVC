@@ -1,0 +1,40 @@
+.list__item {
+  background: #337ab7;
+  color: #fff;
+  padding: 5px 10px;
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+.current {
+  border: 2px solid #337ab7;
+  text-align: center;
+}
+.current__image-box {
+  margin: auto;
+  width: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.current__image-box:hover + div > .fa-heart {
+  color: #ffab69;
+}
+.current__image {
+  width: 200px;
+  height: auto;
+}
+.admin-form {
+  margin-top: 20px;
+}
+.admin-form__name {
+  margin-top: 15px;
+}
+.inputs-wrapper {
+  display: none;
+}
+.fa {
+  font-size: 18px;
+}
+.fa:hover {
+  cursor: pointer;
+  color: #ffab69;
+}
