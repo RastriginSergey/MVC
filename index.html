@@ -11,16 +11,40 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <ul class="nav nav-list list"></ul>
+            <ul class="nav list"></ul>
 
             <div class="current">
                 <h1 class="current__name"></h1>
+
                 <div class="current__image">
                     <img src="" alt=""/>
                 </div>
                 <div class="current__likes lead"></div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <form class="admin-form col-md-4 col-md-offset-4" action="">
+            <button class="admin__btn btn btn-primary btn-block">Admin</button>
+
+            <div class="inputs-wrapper">
+                <div class="form-group">
+                    <input type="text" class="admin-form__name form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="admin-form__img form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="admin-form__likes form-control"/>
+                </div>
+
+                <button class="btn btn-success btn-block">Save</button>
+                <button class="btn btn-warning btn-block">Cancel</button>
+            </div>
+        </form>
+
     </div>
 </div>
 
